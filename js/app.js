@@ -21,6 +21,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
+.directive('noScroll', function($document) {
+  return {
+    restrict: 'A',
+    link: function($scope, $element, $attr) {
+
+      $document.on('touchmove', function(e) {
+        e.preventDefault();
+      });
+    }
+  }
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -47,6 +59,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
+
+ .state('tab.dash-ddd', {
+      url: '/dash/menuddd',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/menuddd.html',
+          controller: 'Inicial'
+        }
+      }
+    })
 
   .state('tab.chats', {
       url: '/chats',
@@ -97,15 +119,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-  .state('tab.menuddd', {
-      url: '/menuddd',
-      views: {
-        'tab-menuddd': {
-          templateUrl: 'templates/menuddd.html',
-          controller: 'Inicial'
-        }
-      }
-    })
+ 
 
     .state('tab.fastfood', {
       url: '/fastfood',
@@ -116,6 +130,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+   .state('tab.fastfood-detalhes', {
+      url: '/fastfood/:contato',
+      views: {
+        'tab-fastfood': {
+          templateUrl: 'templates/pesquisa-detalhes.html',
+          controller: 'VerDetalhes'
+        }
+      }
+    })
+
 
     .state('tab.curtaeganhe', {
       url: '/curtaeganhe',
@@ -126,6 +150,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+   .state('tab.curtaeganhe-detalhes', {
+      url: '/curtaeganhe/:contato',
+      views: {
+        'tab-curtaeganhe': {
+          templateUrl: 'templates/pesquisa-detalhes.html',
+          controller: 'VerDetalhes'
+        }
+      }
+    })
 
     .state('tab.eventos', {
       url: '/eventos',
@@ -133,6 +166,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         'tab-eventos': {
           templateUrl: 'templates/eventos.html',
           controller: 'Eventos'
+        }
+      }
+    })
+   .state('tab.eventos-detalhes', {
+      url: '/eventos/:contato',
+      views: {
+        'tab-eventos': {
+          templateUrl: 'templates/pesquisa-detalhes.html',
+          controller: 'VerDetalhes'
         }
       }
     })
@@ -156,6 +198,65 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+
+    .state('tab.anuncie', {
+      url: '/anuncie',
+      views: {
+        'tab-anuncie': {
+          templateUrl: 'templates/anuncie.html',
+          controller: 'Inicial'
+        }
+      }
+    })
+
+    .state('tab.artemaiz', {
+      url: '/artemaiz',
+      views: {
+        'tab-artemaiz': {
+          templateUrl: 'templates/artemaiz.html',
+          controller: 'Inicial'
+        }
+      }
+    })
+
+    .state('tab.facebook', {
+      url: '/facebook',
+      views: {
+        'tab-facebook': {
+          templateUrl: 'templates/facebook.html',
+          controller: 'Inicial'
+        }
+      }
+    })
+
+    .state('tab.whatsapp', {
+      url: '/whatsapp',
+      views: {
+        'tab-whatsapp': {
+          templateUrl: 'templates/whatsapp.html',
+          controller: 'Inicial'
+        }
+      }
+    })
+    .state('tab.aciasam', {
+      url: '/aciasam',
+      views: {
+        'tab-aciasam': {
+          templateUrl: 'templates/aciasam.html',
+          controller: 'Inicial'
+        }
+      }
+    })
+        .state('tab.orgaospublicos', {
+      url: '/orgaospublicos',
+      views: {
+        'tab-orgaospublicos': {
+          templateUrl: 'templates/orgaospublicos.html',
+          controller: 'Inicial'
+        }
+      }
+    })
+
 
   .state('tab.account', {
     url: '/account',

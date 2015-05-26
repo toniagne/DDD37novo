@@ -1,5 +1,7 @@
 angular.module('starter.services', [])
 
+
+
 .factory('Chats', function($http, $window) {
  
   var favoritos =  $window.localStorage && $window.localStorage.getItem('my-storage');
