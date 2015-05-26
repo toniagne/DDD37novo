@@ -243,16 +243,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-aciasam': {
           templateUrl: 'templates/aciasam.html',
-          controller: 'Inicial'
+          controller: 'Aciasam'
         }
       }
     })
+   .state('tab.aciasam-detalhes', {
+      url: '/aciasam/:contato',
+      views: {
+        'tab-aciasam': {
+          templateUrl: 'templates/pesquisa-detalhes.html',
+          controller: 'VerDetalhes'
+        }
+      }
+    })
+    
         .state('tab.orgaospublicos', {
       url: '/orgaospublicos',
       views: {
         'tab-orgaospublicos': {
           templateUrl: 'templates/orgaospublicos.html',
-          controller: 'Inicial'
+          controller: 'Orgaospublicos'
         }
       }
     })

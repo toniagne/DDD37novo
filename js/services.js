@@ -24,6 +24,8 @@ angular.module('starter.services', [])
     },
      get: function(chatId) {
       var itens = chatId.split("*"); 
+
+      var imagens =  itens[7].split(",");   
                              var detalheContato = [
                                 {
                                     "id": itens[0], 
@@ -33,7 +35,8 @@ angular.module('starter.services', [])
                                     "strTelefone3": itens[4], 
                                     "strEndereco":  itens[5], 
                                     "fotoInterna": itens[6], 
-                                    "pic": itens[7] 
+                                    "pic": itens[7],
+                                    "imagens": imagens
                                   },
                              ];         
                         return detalheContato[0];    
