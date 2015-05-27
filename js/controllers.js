@@ -118,6 +118,14 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
 
 })
 
+.controller('Abertura', function($scope, $sce, $location) {
+   setTimeout(function () 
+       {          
+            $location.path('/tab/dash');     
+       }, 1000);
+
+})
+
 .controller('Inicial', function($scope, $sce) {
   $scope.siteartemaiz            = $sce.trustAsResourceUrl("http://www.artemaiz.com/");
 
@@ -160,6 +168,46 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
             .success(function(data){
                 $ionicLoading.hide();
                 $scope.uteis = data;
+            });
+})  
+
+.controller('Categorias', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) { 
+       $ionicLoading.show({
+            content: 'Carregando Unidades',
+            animation: 'fade-in',
+            showBackdrop: true,
+            maxWidth: 200,
+            showDelay: 0
+          });
+      
+         $http.get('http://www.ddd37.com.br/app/listagens/categorias/', {params: {cidade: $stateParams.cidadeSel}})
+            .error(function(data){
+                $ionicLoading.hide();
+               console.log(data);
+            })
+            .success(function(data){
+                $ionicLoading.hide();
+                $scope.categorias = data;
+            });
+})  
+
+.controller('Emergencia', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) { 
+       $ionicLoading.show({
+            content: 'Carregando Unidades',
+            animation: 'fade-in',
+            showBackdrop: true,
+            maxWidth: 200,
+            showDelay: 0
+          });
+      
+         $http.get('http://www.ddd37.com.br/app/listagens/emergencia/', {params: {cidade: $stateParams.cidadeSel}})
+            .error(function(data){
+                $ionicLoading.hide();
+               console.log(data);
+            })
+            .success(function(data){
+                $ionicLoading.hide();
+                $scope.emergencia = data;
             });
 })  
 

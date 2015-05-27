@@ -1,0 +1,27 @@
+
+<ion-view view-title="Emergência">
+  <ion-content class="padding" style='background-image: url("img/background.jpg"); width:100%; height: 100%; background-size: 100% 100%;'>
+  
+   
+  <ion-list>
+
+      <ion-item 
+              class="item-icon-right my-menu item-text-wrap" 
+              ng-repeat="nome in emergencia | orderBy:'-destaque'" 
+              href="#/tab/categorias/{{nome.id}}*{{nome.strNome}}*{{nome.strTelefone1}}*{{nome.strTelefone2}}*{{nome.strTelefone3}}*{{nome.strEndereco}}*{{nome.pic}}*{{nome.fotosadicional}}"
+              id="{{nome.style}}"> 
+
+     
+      <img ng-if="nome.destaque == 'sim'" ng-src="http://www.ddd37.com.br/fotos/registros/{{nome.pic}}" style="margin-left: 20px;" height="100px" width="100%">
+     
+ 
+        <h2  ng-if="nome.destaque != 'sim'">{{nome.strNome}}</h2>
+        <p  ng-if="nome.destaque != 'sim'">{{nome.strTelefone1}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+     
+      </ion-item>
+      
+</ion-list> 
+
+  </ion-content>
+</ion-view>

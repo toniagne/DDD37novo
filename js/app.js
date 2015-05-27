@@ -136,6 +136,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+   .state('tab.pesquisas-categorias', {
+      url: '/pesquisas/categorias/:cidadeSel',
+      views: {
+        'tab-pesquisas': {
+          templateUrl: 'templates/categorias.html',
+          controller: 'Categorias'
+        }
+      }
+    })
+   .state('tab.pesquisas-emergencia', {
+      url: '/pesquisas/emergencia/:cidadeSel',
+      views: {
+        'tab-pesquisas': {
+          templateUrl: 'templates/emergencia.html',
+          controller: 'Emergencia'
+        }
+      }
+    })
  
 
     .state('tab.fastfood', {
@@ -320,12 +338,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
     
-        .state('tab.orgaospublicos', {
+   .state('tab.orgaospublicos', {
       url: '/orgaospublicos',
       views: {
         'tab-orgaospublicos': {
           templateUrl: 'templates/orgaospublicos.html',
           controller: 'Orgaospublicos'
+        }
+      }
+    })
+
+      .state('tab.abertura', {
+      url: '/abertura',
+      views: {
+        'tab-abertura': {
+          templateUrl: 'templates/abertura.html',
+          controller: 'Abertura'
         }
       }
     })
@@ -342,6 +370,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/abertura');
 
 });
