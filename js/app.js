@@ -128,7 +128,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
    .state('tab.pesquisas-uteis-detalhes', {
-      url: '/pesquisas/uteis/:contato',
+      url: '/pesquisas/uteis/detalhes/:contato',
       views: {
         'tab-pesquisas': {
           templateUrl: 'templates/pesquisa-detalhes.html',
