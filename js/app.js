@@ -118,7 +118,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-
+   .state('tab.pesquisas-uteis', {
+      url: '/pesquisas/uteis/:cidadeSel',
+      views: {
+        'tab-pesquisas': {
+          templateUrl: 'templates/uteis.html',
+          controller: 'Uteis'
+        }
+      }
+    })
+   .state('tab.pesquisas-uteis-detalhes', {
+      url: '/pesquisas/uteis/:contato',
+      views: {
+        'tab-pesquisas': {
+          templateUrl: 'templates/pesquisa-detalhes.html',
+          controller: 'VerDetalhes'
+        }
+      }
+    })
  
 
     .state('tab.fastfood', {
@@ -301,6 +318,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+
     
         .state('tab.orgaospublicos', {
       url: '/orgaospublicos',

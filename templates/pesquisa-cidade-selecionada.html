@@ -1,5 +1,5 @@
 
-<ion-view view-title="Pesquisas">
+<ion-view view-title="{{cidadeSelecionada}}">
   <ion-content class="padding" style='background-image: url("img/background.jpg"); width:100%; height: 100%; background-size: 100% 100%;'>
    
  
@@ -32,6 +32,22 @@
 <p ng-repeat="banner in BannersCidade" ng-show="banner">
 <img src="http://www.ddd37.com.br/fotos/slide_ini/{{banner.id}}_0.jpg" width="100%">
 </p>
+
+<Br><Br><Br>
+<div class="tabs tabs-positive tabs-icon-top">
+  <a class="tab-item" href="#/tab/pesquisas/uteis/{{cidadeSelecionada}}">
+    <i class="icon ion-android-bulb"></i>
+    Úteis
+  </a>
+  <a class="tab-item" href="#/tab/pesquisas/categorias/{{cidadeSelecionada}}">
+    <i class="icon ion-ios-paper"></i>
+    Categorias
+  </a>
+  <a class="tab-item" href="#/tab/pesquisas/emergencia/{{cidadeSelecionada}}">
+    <i class="icon ion-medkit"></i>
+    Emergencia
+  </a>
+</div>
 
   </ion-content>
     <div class="fixed-outside">

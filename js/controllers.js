@@ -143,6 +143,26 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
             });
 })  
 
+.controller('Uteis', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) { 
+       $ionicLoading.show({
+            content: 'Carregando Unidades',
+            animation: 'fade-in',
+            showBackdrop: true,
+            maxWidth: 200,
+            showDelay: 0
+          });
+      
+         $http.get('http://www.ddd37.com.br/app/listagens/uteis/', {params: {cidade: $stateParams.cidadeSel}})
+            .error(function(data){
+                $ionicLoading.hide();
+               console.log(data);
+            })
+            .success(function(data){
+                $ionicLoading.hide();
+                $scope.uteis = data;
+            });
+})  
+
 .controller('Eventos', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) { 
        $ionicLoading.show({
             content: 'Carregando Unidades',
