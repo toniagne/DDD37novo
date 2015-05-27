@@ -15,6 +15,11 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
 
 .controller('Pesquisas', function($scope) {})
 
+.controller('Configuracoes', function($scope) {
+  $scope.post = JSON.parse(window.localStorage['post'] || '{}');  
+
+})
+
 .controller('CardCtrl', function($scope, $ionicSwipeCardDelegate) {
   $scope.goAway = function() {
     var card = $ionicSwipeCardDelegate.getSwipeableCard($scope);
@@ -113,7 +118,10 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
 
 })
 
-.controller('Inicial', function($scope) {})
+.controller('Inicial', function($scope, $sce) {
+  $scope.siteartemaiz            = $sce.trustAsResourceUrl("http://www.artemaiz.com/");
+
+})
    
 .controller('Curtaeganhe', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) { 
        $ionicLoading.show({

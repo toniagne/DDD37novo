@@ -1,0 +1,18 @@
+
+<ion-view view-title="Favoritos">
+  <ion-content class="padding" style='background-image: url("img/background.jpg"); width:100%; height: 100%; background-size: 100% 100%;'> 
+    <ion-list>
+      <ion-item 
+              class="item-icon-right item-text-wrap" 
+              ng-repeat="nome in post"  
+              type="item-text-wrap" 
+              href="#/tab/favoritos/{{nome.id}}*{{nome.strNome}}*{{nome.strTelefone1}}*{{nome.strTelefone2}}*{{nome.strTelefone3}}*{{nome.strEndereco}}*{{nome.pic}}"> 
+        
+        <h2>{{nome.strNome}}</h2>
+        <p>{{nome.strTelefone1}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+</ion-list> 
+
+  </ion-content>
+</ion-view>

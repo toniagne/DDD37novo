@@ -2,12 +2,18 @@
 <ion-view view-title="Anuncie">
   <ion-content class="padding" style='background-image: url("img/background.jpg"); width:100%; height: 100%; background-size: 100% 100%;'> 
     
-<div class="card">
-      <div class="item item-divider">
-        ANUNCIE CONOSCO
+   <div class="card">
+      <div class="item item-text-wrap">
+        <h3>Se seu telefone ou de sua empresa não
+consta aqui no ddd37, informe seus dados
+no formulário abaixo, você pode anunciar
+grátis ou com destaque <B>VIP</B>.</h3>
       </div>
-    </div>
+   </div>
 
+
+ <div class="card">
+      <div class="item item-text-wrap">
  <form method="post" ng-submit="submit(contactform, formData)" name="contactform" role="form">
  
 
@@ -29,11 +35,13 @@
     <textarea ng-model="formData.email"></textarea>
   </label>
   <label class="item item-input item-stacked-label">
-      <span class="input-label">OBSERVAÇÃO</span>
+      <span class="input-label">OBS.</span>
     <textarea ng-model="formData.observacao"></textarea>
   </label>
    <button class="button button-block button-positive">
   ENVIAR
 </button>
+
+</div></div>
   </ion-content>
 </ion-view>

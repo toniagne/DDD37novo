@@ -198,6 +198,51 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+   .state('tab.configuracoes-quemsomos', {
+      url: '/configuracoes/quemsomos',
+      views: {
+        'tab-configuracoes': {
+          templateUrl: 'templates/quemsomos.html',
+          controller: 'Configuracoes'
+        }
+      }
+    })
+   .state('tab.configuracoes-contato', {
+      url: '/configuracoes/contato',
+      views: {
+        'tab-configuracoes': {
+          templateUrl: 'templates/contato.html',
+          controller: 'Configuracoes'
+        }
+      }
+    })
+   .state('tab.configuracoes-anuncie', {
+      url: '/configuracoes/anuncie',
+      views: {
+        'tab-configuracoes': {
+          templateUrl: 'templates/anuncie.html',
+          controller: 'Configuracoes'
+        }
+      }
+    })
+   .state('tab.configuracoes-termos', {
+      url: '/configuracoes/termos',
+      views: {
+        'tab-configuracoes': {
+          templateUrl: 'templates/termos.html',
+          controller: 'Configuracoes'
+        }
+      }
+    })
+   .state('tab.configuracoes-favoritos', {
+      url: '/configuracoes/favoritos',
+      views: {
+        'tab-configuracoes': {
+          templateUrl: 'templates/favoritos.html',
+          controller: 'Configuracoes'
+        }
+      }
+    })
 
     .state('tab.anuncie', {
       url: '/anuncie',
