@@ -145,6 +145,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+  .state('tab.categorias-categoriascadastros', {
+      url: '/categorias/vercadastro/:cidadeSel',
+      views: {
+        'tab-pesquisas': {
+          templateUrl: 'templates/categoriascadastros.html',
+          controller: 'CategoriasCadastros'
+        }
+      }
+    })
+   .state('tab.pesquisas-categoriascadastros-detalhes', {
+      url: '/categorias/vercadastro/resultado/:contato',
+      views: {
+        'tab-pesquisas': {
+          templateUrl: 'templates/pesquisa-detalhes.html',
+          controller: 'VerDetalhes'
+        }
+      }
+    })
    .state('tab.pesquisas-emergencia', {
       url: '/pesquisas/emergencia/:cidadeSel',
       views: {

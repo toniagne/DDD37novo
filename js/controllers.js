@@ -25,7 +25,7 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
     var card = $ionicSwipeCardDelegate.getSwipeableCard($scope);
     card.swipe();
   };
-})
+})  
         
 .controller('Fastfood', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) { 
        $ionicLoading.show({
@@ -89,6 +89,23 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
  
 
 .controller('PesquisasCidade', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) {
+   $('.sky-carousel').carousel({
+              itemWidth: 260,
+              itemHeight: 260,
+              distance: 12,
+              selectedItemDistance: 75,
+              selectedItemZoomFactor: 1,
+              unselectedItemZoomFactor: 0.5,
+              unselectedItemAlpha: 0.6,
+              motionStartDistance: 210,
+              topMargin: 115,
+              gradientStartPoint: 0.35,
+              gradientOverlayColor: "#ebebeb",
+              gradientOverlaySize: 190,
+              selectByClick: true
+            });
+
+
 	 $scope.cidadeSelecionada = $stateParams.cidadeSel;
 	 $http.get('http://www.ddd37.com.br/app/listagens/banners/', {params: {cidade: $stateParams.cidadeSel}})
                .then(        
@@ -172,6 +189,8 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
 })  
 
 .controller('Categorias', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) { 
+
+      $scope.cidade = $stateParams.cidadeSel;
        $ionicLoading.show({
             content: 'Carregando Unidades',
             animation: 'fade-in',
@@ -189,7 +208,30 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
                 $ionicLoading.hide();
                 $scope.categorias = data;
             });
-})  
+}) 
+.controller('CategoriasCadastros', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) { 
+
+      var itens   =   $stateParams.cidadeSel.split("*"); 
+       $ionicLoading.show({
+            content: 'Carregando Unidades',
+            animation: 'fade-in',
+            showBackdrop: true,
+            maxWidth: 200,
+            showDelay: 0
+          });
+      
+        $http.get('http://www.ddd37.com.br/app/listagens/geral/', {params: {categoria: itens[0], cidade: itens[1]}}) 
+
+            .error(function(data){
+                $ionicLoading.hide();
+               console.log(data);
+            })
+            .success(function(data){
+                $ionicLoading.hide();
+                $scope.registros = data;
+            });
+}) 
+
 
 .controller('Emergencia', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) { 
        $ionicLoading.show({
@@ -244,24 +286,12 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
   };
 })
 
-.controller('VerDetalhes', function($scope, $stateParams, $ionicPopup, Chats) { 
+.controller('VerDetalhes', function($scope, $stateParams, $ionicPopup, Chats, $window) { 
  
-$scope.myInterval = 3000;
-  $scope.slides = [
-    {
-      image: 'http://lorempixel.com/400/200/'
-    },
-    {
-      image: 'http://lorempixel.com/400/200/food'
-    },
-    {
-      image: 'http://lorempixel.com/400/200/sports'
-    },
-    {
-      image: 'http://lorempixel.com/400/200/people'
-    }
-  ];
  
+$scope.linkModelFunc = function (url){ 
+  $window.open(url);
+}
 
      $scope.favoritar = function (data){
       var itens   =   data.split("*"); 

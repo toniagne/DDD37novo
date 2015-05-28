@@ -49,17 +49,16 @@
       
     </a>
 
-    <a class="tab-item" ng-click="favoritar(chat.id+'*'+chat.strNome+'*'+chat.strEndereco+'*'+chat.strTelefone1+'*'+chat.strTelefone2+'*'+chat.strTelefone3+'*'+chat.fotoInterna)">
-      <i class="icon ion-social-facebook"></i>
-      
+    <a ng-if="chat.face" class="tab-item"  ng-click="linkModelFunc('https://{{chat.face}}')">
+      <i class="icon ion-social-facebook"></i>      
     </a>
 
-    <a class="tab-item" ng-click="favoritar(chat.id+'*'+chat.strNome+'*'+chat.strEndereco+'*'+chat.strTelefone1+'*'+chat.strTelefone2+'*'+chat.strTelefone3+'*'+chat.fotoInterna)">
+    <a  ng-if="chat.emails" class="tab-item" ng-href="mailto://{{chat.mail}}">
       <i class="icon ion-email"></i>
       
     </a>
 
-    <a class="tab-item" ng-click="favoritar(chat.id+'*'+chat.strNome+'*'+chat.strEndereco+'*'+chat.strTelefone1+'*'+chat.strTelefone2+'*'+chat.strTelefone3+'*'+chat.fotoInterna)">
+    <a  ng-if="chat.site" class="tab-item" ng-click="linkModelFunc('http://{{chat.site}}')" >
       <i class="icon ion-earth"></i>
       
     </a>

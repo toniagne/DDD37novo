@@ -25,7 +25,9 @@ angular.module('starter.services', [])
      get: function(chatId) {
       var itens = chatId.split("*"); 
 
-      var imagens =  itens[7].split(",");   
+      var imagens =  itens[7].split(",");       
+      var face1   =  itens[8].replace(/,/g, "/"); var face = face1.replace(/°/g, "?"); 
+      var site1   =  itens[9].replace(/,/g, "/"); var site = site1.replace(/°/g, "?");
                              var detalheContato = [
                                 {
                                     "id": itens[0], 
@@ -36,7 +38,10 @@ angular.module('starter.services', [])
                                     "strEndereco":  itens[5], 
                                     "fotoInterna": itens[6], 
                                     "pic": itens[7],
-                                    "imagens": imagens
+                                    "imagens": imagens,
+                                    "face": face,
+                                    "site": site,
+                                    "email": ""
                                   },
                              ];         
                         return detalheContato[0];    
