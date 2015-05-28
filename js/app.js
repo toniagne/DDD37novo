@@ -172,6 +172,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+   .state('tab.pesquisas-emergencia-detalhes', {
+      url: '/pesquisas/emergencia/detalhes/:contato',
+      views: {
+        'tab-pesquisas': {
+          templateUrl: 'templates/pesquisa-detalhes.html',
+          controller: 'VerDetalhes'
+        }
+      }
+    })
  
 
     .state('tab.fastfood', {

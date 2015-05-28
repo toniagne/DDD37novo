@@ -15,7 +15,42 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
 
 .controller('Pesquisas', function($scope) {})
 
-.controller('Configuracoes', function($scope) {
+.controller('Configuracoes', function($scope, $ionicLoading, $ionicPopup, $http) {
+  $scope.submit = function(contactform, formData) {
+    $ionicLoading.show({
+            content: 'Carregando Unidades',
+            animation: 'fade-in',
+            showBackdrop: true,
+            maxWidth: 200,
+            showDelay: 0
+          });
+            if (contactform.$valid) {             
+                $http({
+                    method  : 'POST',
+                    url     : 'http://www.renies.com.br/enviaemail/?telefone='+formData['telefone']+'&email='+formData['email']+'&assunto='+formData['assunto']+'&texto='+formData['texto'],
+                    data    : $scope.formData,  //param method from jQuery //set the headers so angular passing info as form data (not request payload)
+                }).success(function(data){
+                      $ionicLoading.hide(); 
+                      return $ionicPopup.alert({
+                       title: 'ATENÇÃO.',
+                       template: 'Sua mensagem foi enviada com sucesso !<br><br> Em breve entraremos em contato.'
+                     });
+                    
+                }).error(function(data){
+                  $ionicLoading.hide(); 
+                  return $ionicPopup.alert({
+                       title: 'ERRO.',
+                       template: 'Houve um erro no envio, verifique sua conexão, ou tente novamente.'
+                     });
+                });
+            } else {
+                return $ionicPopup.alert({
+                       title: 'ERRO.',
+                       template: 'Houve um erro no envio, verifique sua conexão, ou tente novamente.'
+                     });
+            }
+        }
+
   $scope.post = JSON.parse(window.localStorage['post'] || '{}');  
 
 })
@@ -143,9 +178,12 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
 
 })
 
-.controller('Inicial', function($scope, $sce) {
-  $scope.siteartemaiz            = $sce.trustAsResourceUrl("http://www.artemaiz.com/");
+.controller('Inicial', function($scope, $sce, $window) {
 
+  $scope.linkModelFunc = function (url){ 
+  $window.open(url);
+}
+   
 })
    
 .controller('Curtaeganhe', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) { 
