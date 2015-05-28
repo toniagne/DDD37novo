@@ -9,8 +9,9 @@ angular.module('starter.services', [])
     all: function() {
       return chats;
     },
-    incluiFavoritos: function(itens){ 
-     var favoritosObject = JSON.parse(favoritos);
+    incluiFavoritos: function(itens){
+     var favoritosObject = [];
+      favoritosObject = JSON.parse(favoritos);
      var arrFavoritos = [];
      var resultado = favoritosObject.push(itens[0])
     

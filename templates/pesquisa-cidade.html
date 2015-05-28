@@ -3,24 +3,55 @@
   <ion-content class="padding" style='background-image: url("img/background.jpg"); width:100%; height: 100%; background-size: 100% 100%;'>
     <img src="img/banner_escolhacidade.jpg" width="100%">
 
+<script type="text/javascript">
+  $(function() {
+    $('.sky-carousel').carousel({
+      itemWidth: 240,
+      itemHeight: 240,
+      distance: 10,
+      selectedItemDistance: 70,
+      selectedItemZoomFactor: 1,
+      unselectedItemZoomFactor: 0.5,
+      unselectedItemAlpha: 0.9,
+      motionStartDistance: 200,
+      topMargin: 140,
+      gradientStartPoint: 0.35,
+      gradientOverlayColor: "#ebebeb",
+      gradientOverlaySize: 190,
+      selectByClick: false
+    });
+  });
+</script>
+
+<div class="sky-carousel"> 
+          <div class="sky-carousel-wrapper">
+            <ul class="sky-carousel-container">
+              <li>
+                <a href="#/tab/pesquisas/divinopolis"><img src="img/1.png"></a>
+                <div class="sc-content">
+                  <h2>DIVINÓPOLIS</h2>
+                </div>
+              </li>
+              <li>
+                 <a href="#/tab/pesquisas/Santo Antonio do Monte"><img src="img/3.png"></a>
+                <div class="sc-content">
+                  <h2>SANTO ANTONIO DO MONTE</h2>
+                </div>
+              </li>
+              <li>
+               <a href="#/tab/pesquisas/lagoa da prata"> <img src="img/2.png"></a>
+                <div class="sc-content">
+                  <h2>LAGOA DA PRATA</h2>
+                </div>
+              </li>
+              
+               
+            </ul>
+          </div>
+</div> 
 
 
-
-
-    <div class="list">
-
-    <a class="item" href="#/tab/pesquisas/Santo Antonio do Monte">
-      <img src="img/bt_SAMONTELISTA.png" width="100%">
-    </a>
- 
-    <a class="item" href="#/tab/pesquisas/lagoa da prata">
-      <img src="img/bt_lagoalista.png" width="100%">
-    </a>
-
-    <a class="item" href="#/tab/pesquisas/divinopolis">
-      <img src="img/banner_divinopolis.png" width="100%">
-    </a>
-</div>
+   
 
   </ion-content>
 </ion-view>

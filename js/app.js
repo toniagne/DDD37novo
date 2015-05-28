@@ -305,6 +305,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+      .state('tab.configuracoes-favoritos-detalhes', {
+      url: '/configuracoes/favoritos/:contato',
+      views: {
+        'tab-configuracoes': {
+          templateUrl: 'templates/pesquisa-detalhes.html',
+          controller: 'VerDetalhes'
+        }
+      }
+    })
 
     .state('tab.anuncie', {
       url: '/anuncie',
