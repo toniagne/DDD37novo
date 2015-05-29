@@ -15,7 +15,7 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
 
 .controller('Pesquisas', function($scope) {})
 
-.controller('Configuracoes', function($scope, $ionicLoading, $ionicPopup, $http, $window) {
+.controller('Configuracoes', function($scope, $ionicLoading, $ionicPopup, $http, $window, Chats) {
   $scope.submit = function(contactform, formData) {
     $ionicLoading.show({
             content: 'Carregando Unidades',
@@ -50,8 +50,8 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
                      });
             }
         }
-
-  $scope.post = JSON.parse($window.localStorage && $window.localStorage.getItem('my-storage'));  
+        console.log($window.localStorage['my-storage']);
+  $scope.post = JSON.parse($window.localStorage['my-storage']);  
 
 })
 

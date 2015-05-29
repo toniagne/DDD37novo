@@ -13,7 +13,7 @@
         <div class="list card">
 
   <div class="item item-text-wrap">
-  <img  ng-src="http://www.ddd37.com.br/fotos/registros/{{chat.fotoInterna}}" width="100%"> <br>
+  <img ng-if="chat.fotoInterna != 'uteis.png'" ng-src="http://www.ddd37.com.br/fotos/registros/{{chat.fotoInterna}}" width="100%"> <br>
     <h2>{{chat.strNome}}</h2>
     <p> {{chat.strEndereco}}</p>
   </div>

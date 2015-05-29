@@ -5,17 +5,19 @@ angular.module('starter.services', [])
 .factory('Chats', function($http, $window) {
  
   var favoritos =  $window.localStorage && $window.localStorage.getItem('my-storage');
-  return {
-    all: function() {
-      return chats;
-    },
-    incluiFavoritos: function(itens){
-     var favoritosObject = [];
-      favoritosObject = JSON.parse(favoritos);
-     var arrFavoritos = [];
-     var resultado = favoritosObject.push(itens[0])
-    
 
+  return {
+    verfavoritos: function() { 
+      return JSON.parse(favoritos);
+    },
+    incluiFavoritos: function(itens){   
+     if (favoritos == null) {
+      var favoritosObject = itens;
+     } else {
+      var favoritosObject = JSON.parse(favoritos);
+     }
+
+      var resultado = favoritosObject.push(itens[0])    
      localStorage["names"] = JSON.stringify(favoritosObject);      
      $window.localStorage && $window.localStorage.setItem('my-storage', localStorage["names"]);
     },
