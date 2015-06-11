@@ -49,9 +49,9 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
                        template: 'Houve um erro no envio, verifique sua conexão, ou tente novamente.'
                      });
             }
-        }
-        console.log($window.localStorage['my-storage']);
-  $scope.post = JSON.parse($window.localStorage['my-storage']);  
+        } 
+
+  //$scope.post = JSON.parse($window.localStorage['my-storage']);  
 
 })
 
@@ -148,7 +148,27 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
                   $scope.BannersCidade  = res.data;              
                 }); 
 
+
+
      $scope.pesquisar = function(text){
+       
+     function removeAcento(strToReplace) {
+            str_acento = "áàãâäéèêëíìîïóòõôöúùûüçÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÖÔÚÙÛÜÇ";
+            str_sem_acento = "aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC";
+            var nova = "";
+            for (var i = 0; i < strToReplace.length; i++) {
+                if (str_acento.indexOf(strToReplace.charAt(i)) != -1) {
+                    nova += str_sem_acento.substr(str_acento.search(strToReplace.substr(i, 1)), 1);
+                } else {
+                    nova += strToReplace.substr(i, 1);
+                }
+            }
+            return nova;
+        }
+        
+        var termousado = removeAcento(text.replace('ç', "c"));
+        console.log(termousado);
+
      	 $ionicLoading.show({
             content: 'Carregando Unidades',
             animation: 'fade-in',
@@ -157,7 +177,7 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
             showDelay: 0
           });
      	
-         $http.get('http://www.ddd37.com.br/app/listagens/geral', {params: {cidade: $stateParams.cidadeSel, termo: text}})
+         $http.get('http://www.ddd37.com.br/app/listagens/geral', {params: {cidade: $stateParams.cidadeSel, termo: termousado}})
             .error(function(data){
                 $ionicLoading.hide();
                console.log(data);
