@@ -7,6 +7,20 @@
   text-align:center;
 }
 
+.customIconSound {
+    font-size: 52px;
+}
+
+.imgpos {
+    position:absolute;
+    width: 100%;
+    left:50%;
+    top:50%;
+    margin-left:-110px;
+    margin-top:-40px;
+    z-index: 999999999999;
+    }
+
 .has-bottom .scroll{
   padding-bottom:120px !important;
 }

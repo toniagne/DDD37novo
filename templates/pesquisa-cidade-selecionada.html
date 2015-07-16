@@ -12,7 +12,7 @@
       <ion-item 
               class="item-icon-right my-menu item-text-wrap" 
               ng-repeat="nome in registros | orderBy:'-destaque'" 
-              href="#/tab/pesquisas/resultado/{{nome.id}}*{{nome.strNome}}*{{nome.strTelefone1}}*{{nome.strTelefone2}}*{{nome.strTelefone3}}*{{nome.strEndereco}}*{{nome.pic}}*{{nome.fotosadicional}}*{{nome.facebook}}*{{nome.site}}"
+              href="#/tab/pesquisas/resultado/{{nome.id}}*{{mudastring(nome.strNome)}}*{{nome.strTelefone1}}*{{nome.strTelefone2}}*{{nome.strTelefone3}}*{{nome.strEndereco}}*{{nome.pic}}*{{nome.fotosadicional}}*{{nome.facebook}}*{{nome.site}}"
               id="{{nome.style}}"> 
 
      
@@ -28,8 +28,8 @@
 </ion-list> 
 
  
-
 <p ng-repeat="banner in BannersCidade" ng-show="banner">
+  <Br>
 <img src="http://www.ddd37.com.br/fotos/slide_ini/{{banner.id}}_0.jpg" width="100%">
 </p>
 
@@ -51,12 +51,12 @@
 
   </ion-content>
     <div class="fixed-outside">
-        <div class="bar bar-header item-input-inset">
-          <label class="item-input-wrapper">
+        <div class="bar bar-header item-input-inset" style="height: 70px;">
+          <label class="item-input-wrapper" style="height: 60px;">
             <i class="icon ion-ios-search placeholder-icon"></i>
-            <input type="search" ng-model="expres" placeholder="Pesquisa" >
-          </label>
-          <button class="button button-clear ion-search" ng-click="pesquisar(expres)">   </button>
+            <input type="search" ng-model="expres" placeholder="Pesquisa" style="height: 60px;">
+          </label> 
+          <a class="button button-icon icon ion-search" ng-click="pesquisar(expres)"></a>
 </div>
     </div>
 

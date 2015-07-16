@@ -149,6 +149,10 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
                 }); 
 
 
+      $scope.mudastring = function(term){
+
+          return term.replace('/', " "); 
+        }
 
      $scope.pesquisar = function(text){
        
@@ -319,6 +323,11 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
             maxWidth: 200,
             showDelay: 0
           });
+
+       $scope.mudastring = function(term){
+
+          return term.replace('/', " "); 
+        }
       
          $http.get('http://www.ddd37.com.br/app/listagens/eventos/')
             .error(function(data){
@@ -344,12 +353,29 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
   };
 })
 
-.controller('VerDetalhes', function($scope, $stateParams, $ionicPopup, Chats, $window) { 
+.controller('VerDetalhes', function($scope, $stateParams, $ionicPopup, Chats, $window, $ionicSlideBoxDelegate) { 
  
- 
-$scope.linkModelFunc = function (url){ 
-  $window.open(url);
-}
+  $scope.next = function() {
+    $ionicSlideBoxDelegate.next();
+  };
+  $scope.previous = function() {
+    $ionicSlideBoxDelegate.previous();
+  };
+
+  $scope.linkModelFunc = function (url){ 
+    $window.open(url);
+  }
+
+  $scope.abreImagem = function(content){
+    console.log('teste');
+    return $ionicPopup.show({
+                       template: '<img src="'+content+'" width="100%">',
+                       buttons: [
+                        { text: 'Fechar' }
+                       ]
+                     });
+  }
+
 
      $scope.favoritar = function (data){
       var itens   =   data.split("*"); 

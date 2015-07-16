@@ -4,8 +4,22 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{chat.strNome}}<">
+<ion-view view-title="{{chat.strNome}}">
+  
+
   <ion-content class="padding" style='background-image: url("img/background.jpg"); width:100%; height: 100%; background-size: 100% 100%;'>
+ <div class="imgpos">
+  <div class="row" >
+    <div class="col" >
+        <a class="button button-large icon-left customIconSound ion-android-arrow-dropleft-circle button-clear button-positive" ng-click="previous()" style="margin-left: -40%;"></a>
+           
+    </div>
+    <div class="col" style="text-align: right;">
+      <a class="button button-large icon-left ion-android-arrow-dropright-circle button-clear button-positive"  ng-click="next()"></a>
+           
+    </div>
+  </div>
+ </div>
 
 <ion-slide-box active-slide="myActiveSlide">
   <ion-slide>
@@ -69,7 +83,8 @@
     </div>
   </ion-slide>
   <ion-slide ng-repeat="arquivo in chat.imagens" ng-if="arquivo">
-    <img ng-src="http://www.ddd37.com.br/fotos/fotos_adicionais/{{arquivo}}_0.jpg" style="width: 100%; height: 100%;"> 
+    <img ng-src="http://www.ddd37.com.br/fotos/fotos_adicionais/{{arquivo}}_0.jpg" 
+      ng-click="abreImagem('http://www.ddd37.com.br/fotos/fotos_adicionais/{{arquivo}}_0.jpg')" style="width: 100%; height: 100%;"> 
   </ion-slide> 
 </ion-slide-box>
   

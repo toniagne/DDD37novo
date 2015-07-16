@@ -27,14 +27,15 @@ angular.module('starter.services', [])
     },
      get: function(chatId) {
       var itens = chatId.split("*"); 
-
+      String.prototype.stripHTML = function() {return this.replace(/<.*?>/g, '');}
       var imagens =  itens[7].split(",");       
       var face1   =  itens[8].replace(/,/g, "/"); var face = face1.replace(/°/g, "?"); 
       var site1   =  itens[9].replace(/,/g, "/"); var site = site1.replace(/°/g, "?");
+      var nome    = itens[1];
                              var detalheContato = [
                                 {
                                     "id": itens[0], 
-                                    "strNome": itens[1], 
+                                    "strNome": nome.stripHTML(), 
                                     "strTelefone1": itens[2], 
                                     "strTelefone2": itens[3], 
                                     "strTelefone3": itens[4], 
