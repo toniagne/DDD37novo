@@ -124,6 +124,7 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
  
 
 .controller('PesquisasCidade', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) {
+  $scope.apagaitem = false;
    $('.sky-carousel').carousel({
               itemWidth: 260,
               itemHeight: 260,
@@ -149,13 +150,17 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
                 }); 
 
 
-      $scope.mudastring = function(term){
-
+     $scope.mudastring = function(term){
           return term.replace('/', " "); 
-        }
+     }
+
+     $scope.limpapesquisa = function(text){ 
+       $scope.apagaitem = false;
+       $scope.registros = "";
+     } 
 
      $scope.pesquisar = function(text){
-       
+       $scope.apagaitem = true;
      function removeAcento(strToReplace) {
             str_acento = "áàãâäéèêëíìîïóòõôöúùûüçÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÖÔÚÙÛÜÇ";
             str_sem_acento = "aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC";
@@ -171,7 +176,7 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
         }
         
         var termousado = removeAcento(text.replace('ç', "c"));
-        console.log(termousado);
+         
 
      	 $ionicLoading.show({
             content: 'Carregando Unidades',

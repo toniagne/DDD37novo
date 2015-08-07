@@ -52,10 +52,14 @@
   </ion-content>
     <div class="fixed-outside">
         <div class="bar bar-header item-input-inset" style="height: 70px;">
+          <a ng-show="apagaitem"  class="button button-icon icon ion-close-circled" ng-click="limpapesquisa(); expres = ' '"></a>
+
           <label class="item-input-wrapper" style="height: 60px;">
             <i class="icon ion-ios-search placeholder-icon"></i>
             <input type="search" ng-model="expres" placeholder="Pesquisa" style="height: 60px;">
           </label> 
+
+          
           <a class="button button-icon icon ion-search" ng-click="pesquisar(expres)"></a>
 </div>
     </div>
