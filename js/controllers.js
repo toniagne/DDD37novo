@@ -210,8 +210,8 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
 .controller('Inicial', function($scope, $sce, $window) {
 
   $scope.linkModelFunc = function (url){ 
-  $window.open(url);
-}
+    window.open(url,'_blank', "location=1,status=1,scrollbars=1");
+  }
    
 })
    
