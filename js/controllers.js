@@ -143,7 +143,7 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
 
 
 	 $scope.cidadeSelecionada = $stateParams.cidadeSel;
-	 $http.get('http://www.ddd37.com.br/app/listagens/banners/', {params: {cidade: $stateParams.cidadeSel}})
+	 $http.jsonp('http://www.ddd37.com.br/app/listagens/banners/', {params: {cidade: $stateParams.cidadeSel}})
                .then(        
                 function(res){
                   $scope.BannersCidade  = res.data;              
