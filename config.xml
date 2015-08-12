@@ -31,8 +31,8 @@
     <gap:plugin name="org.apache.cordova.splashscreen" /> 
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <allow-intent href="http://example.com/*" />
-    <allow-intent href="*://*.example.com/*" />
+    <allow-intent href="http://ddd37.com.br/*" />
+    <allow-intent href="*://*.ddd37.com.br/*" />
     <allow-intent href="sms:*" />
     <allow-intent href="tel:*" />
     <allow-intent href="geo:*" />
