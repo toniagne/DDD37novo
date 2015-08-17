@@ -185,16 +185,32 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
             maxWidth: 200,
             showDelay: 0
           });
+
+
      	
-         $http.get('http://www.ddd37.com.br/app/listagens/geral', {params: {cidade: $stateParams.cidadeSel, termo: termousado}})
+         $http.get('http://www.ddd37.com.br/app/listagens/geral', {headers:{
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With',
+                'X-Random-Shit':'123123123'
+            }, params: {cidade: $stateParams.cidadeSel, termo: termousado}})
             .error(function(data){
                 $ionicLoading.hide();
-               console.log(data);
-            })
-            .success(function(data){
-                $ionicLoading.hide();
-                $scope.registros = data;
-            });
+                
+
+
+                $http.get('data/lista-samonte.json')
+                  .success(function(data) { 
+                   })
+                  .then(        
+                      function(res){
+                        $scope.registros  = res.data;        
+                       }); 
+                  })
+                  .success(function(data){
+                      $ionicLoading.hide();
+                      $scope.registros = data;
+                  });
      }
 
 })
