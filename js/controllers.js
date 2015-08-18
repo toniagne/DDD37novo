@@ -185,7 +185,7 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
             showDelay: 0
           });
      	
-         $http.get('http://www.ddd3733.com.br/app/listagens/geral', 
+         $http.get('http://www.ddd37.com.br/app/listagens/geral', 
           {params: {cidade: $stateParams.cidadeSel, termo: termousado}})               
                   .success(function(data){
                       $ionicLoading.hide();

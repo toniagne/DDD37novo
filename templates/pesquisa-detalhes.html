@@ -63,7 +63,7 @@
       
     </a>
 
-    <a ng-if="chat.face" class="tab-item"  onclick="window.open('https://{{chat.face}}', '_system', 'location=yes')"  >
+    <a ng-if="chat.face" class="tab-item"  onclick="window.open('{{chat.face}}', '_system', 'location=yes')"  >
       <i class="icon ion-social-facebook"></i>      
     </a>
 
@@ -72,7 +72,7 @@
       
     </a>
 
-    <a  ng-if="chat.site" class="tab-item" ng-click="linkModelFunc('http://{{chat.site}}')" >
+    <a  ng-if="chat.site" class="tab-item" onclick="window.open('{{chat.site}}', '_system', 'location=yes')" >
       <i class="icon ion-earth"></i>
       
     </a>
