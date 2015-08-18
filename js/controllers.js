@@ -371,8 +371,10 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
   };
 
   $scope.linkModelFunc = function (url){ 
-    $window.open(url);
+   return $window.open("https://"+url, '_system', 'location=yes');
   }
+
+
 
   $scope.abreImagem = function(content){
     console.log('teste');

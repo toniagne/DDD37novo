@@ -52,8 +52,7 @@
     <i class="icon ion-android-arrow-dropright-circle"></i>
     <h2>{{chat.strTelefone3}}</h2>
     <i class="icon ion-ios-telephone-outline"></i>
-  </a>
-
+  </a> 
 </div>
   </div>
 
@@ -63,7 +62,7 @@
       
     </a>
 
-    <a ng-if="chat.face" class="tab-item"  onclick="window.open('{{chat.face}}', '_system', 'location=yes')"  >
+    <a ng-if="chat.face" class="tab-item"  ng-click='linkModelFunc(chat.face)' >
       <i class="icon ion-social-facebook"></i>      
     </a>
 
@@ -72,7 +71,7 @@
       
     </a>
 
-    <a  ng-if="chat.site" class="tab-item" onclick="window.open('{{chat.site}}', '_system', 'location=yes')" >
+    <a  ng-if="chat.site" class="tab-item" ng-click='linkModelFunc(chat.site)' >
       <i class="icon ion-earth"></i>
       
     </a>
