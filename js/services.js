@@ -2,7 +2,18 @@ angular.module('starter.services', [])
 
 
 
+
+
+
+
 .factory('Chats', function($http, $window) {
+
+  var registros = $http.get('data/lista-samonte.json')                  
+                  .then(        
+                      function(res){   
+                       return res.data;  
+                       }); 
+
  
   var favoritos =  $window.localStorage && $window.localStorage.getItem('my-storage');
 
@@ -24,6 +35,21 @@ angular.module('starter.services', [])
       banners: function(cidade){
       var banners =  $http.get('http://www.ddd37.com.br/app/listagens/banners/', {params: {cidade: cidade}});
       console.log(banners.$$state);
+    },
+    pesquisaoffline: function(text) { 
+      
+     var conteudo = registros.$$state.value; 
+     var results = []; 
+
+     for(var i=0; i<conteudo.length; i++) {
+        for(key in conteudo[i]) { 
+
+          if(conteudo[i]['strNome'].indexOf('ADVOGADO')!=-1) {
+              results.push(conteudo[i]);              
+          }    
+        }
+      }    
+      return results;
     },
      get: function(chatId) {
       var itens = chatId.split("*"); 

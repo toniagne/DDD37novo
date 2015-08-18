@@ -123,7 +123,7 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
 }) 
  
 
-.controller('PesquisasCidade', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading) {
+.controller('PesquisasCidade', function($scope, $stateParams, $http, $ionicPopup, $ionicLoading, Chats) {
   $scope.apagaitem = false;
    $('.sky-carousel').carousel({
               itemWidth: 260,
@@ -142,13 +142,12 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
             });
 
 
-	 $scope.cidadeSelecionada = $stateParams.cidadeSel;
-	 $http.jsonp('http://www.ddd37.com.br/app/listagens/banners/', {params: {cidade: $stateParams.cidadeSel}})
-               .then(        
-                function(res){
-                  $scope.BannersCidade  = res.data;              
-                }); 
-
+  	 $scope.cidadeSelecionada = $stateParams.cidadeSel;   
+  	 $http.get('http://www.ddd37.com.br/app/listagens/banners/', {params: {cidade: $stateParams.cidadeSel}})
+                 .then(        
+                  function(res){
+                    $scope.BannersCidade  = res.data;              
+                  }); 
 
      $scope.mudastring = function(term){
           return term.replace('/', " "); 
@@ -161,22 +160,22 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
 
      $scope.pesquisar = function(text){
        $scope.apagaitem = true;
-     function removeAcento(strToReplace) {
-            str_acento = "áàãâäéèêëíìîïóòõôöúùûüçÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÖÔÚÙÛÜÇ";
-            str_sem_acento = "aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC";
-            var nova = "";
-            for (var i = 0; i < strToReplace.length; i++) {
-                if (str_acento.indexOf(strToReplace.charAt(i)) != -1) {
-                    nova += str_sem_acento.substr(str_acento.search(strToReplace.substr(i, 1)), 1);
-                } else {
-                    nova += strToReplace.substr(i, 1);
+
+            function removeAcento(strToReplace) {
+                str_acento = "áàãâäéèêëíìîïóòõôöúùûüçÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÖÔÚÙÛÜÇ";
+                str_sem_acento = "aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC";
+                var nova = "";
+                for (var i = 0; i < strToReplace.length; i++) {
+                    if (str_acento.indexOf(strToReplace.charAt(i)) != -1) {
+                        nova += str_sem_acento.substr(str_acento.search(strToReplace.substr(i, 1)), 1);
+                    } else {
+                        nova += strToReplace.substr(i, 1);
+                    }
                 }
+                return nova;
             }
-            return nova;
-        }
         
-        var termousado = removeAcento(text.replace('ç', "c"));
-         
+       var termousado = removeAcento(text.replace('ç', "c"));        
 
      	 $ionicLoading.show({
             content: 'Carregando Unidades',
@@ -185,33 +184,21 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
             maxWidth: 200,
             showDelay: 0
           });
-
-
      	
-         $http.get('http://www.ddd37.com.br/app/listagens/geral', {headers:{
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With',
-                'X-Random-Shit':'123123123'
-            }, params: {cidade: $stateParams.cidadeSel, termo: termousado}})
-            .error(function(data){
-                $ionicLoading.hide();
-                
-
-
-                $http.get('data/lista-samonte.json')
-                  .success(function(data) { 
-                   })
-                  .then(        
-                      function(res){
-                        $scope.registros  = res.data;        
-                       }); 
-                  })
+         $http.get('http://www.ddd3733.com.br/app/listagens/geral', 
+          {params: {cidade: $stateParams.cidadeSel, termo: termousado}})               
                   .success(function(data){
                       $ionicLoading.hide();
                       $scope.registros = data;
+                  })
+
+                  .error(function(data){
+                    console.log('leitura offline'); 
+                    $ionicLoading.hide();                    
+                    $scope.registros = Chats.pesquisaoffline(termousado);  
+                     
                   });
-     }
+        }
 
 })
 
