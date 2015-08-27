@@ -27,7 +27,7 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
             if (contactform.$valid) {             
                 $http({
                     method  : 'POST',
-                    url     : 'http://www.renies.com.br/enviaemail/?telefone='+formData['telefone']+'&email='+formData['email']+'&assunto='+formData['assunto']+'&texto='+formData['texto'],
+                    url     : 'http://www.ddd37.com.br//app.mobile/enviaemail/index.php?telefone='+formData['telefone']+'&email='+formData['email']+'&assunto='+formData['assunto']+'&texto='+formData['mensagem']+'&nome='+formData['nome'],
                     data    : $scope.formData,  //param method from jQuery //set the headers so angular passing info as form data (not request payload)
                 }).success(function(data){
                       $ionicLoading.hide(); 
@@ -194,8 +194,16 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
 
                   .error(function(data){
                     console.log('leitura offline'); 
-                    $ionicLoading.hide();                    
-                    $scope.registros = Chats.pesquisaoffline(termousado);  
+                    $http.get('data/lista-samonte.json')
+                      .error(function(data){
+                          
+                      })
+                      .success(function(data){
+                          $ionicLoading.hide();
+                          $scope.registros = data;
+                      });
+
+                   usado);  
                      
                   });
         }
