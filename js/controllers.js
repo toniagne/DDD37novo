@@ -202,8 +202,7 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
                           $ionicLoading.hide();
                           $scope.registros = data;
                       });
-
-                   usado);  
+ 
                      
                   });
         }
