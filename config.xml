@@ -29,9 +29,9 @@
     <gap:plugin name="org.apache.cordova.media" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" /> 
-     <feature name="Whatsapp">
-        <param name="android-package" value="mobi.moica.whatsapp.Whatsapp" />
-    </feature>
+<feature name="SocialSharing">
+  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+</feature>>
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="http://ddd37.com.br/*" />
