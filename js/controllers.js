@@ -185,7 +185,7 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
             showDelay: 0
           });
      	
-         $http.get('http://www.ddd37.com.br/app/listagens/geral', 
+         $http.get('http://www.ddd3732452.com.br/app/listagens/geral', 
           {params: {cidade: $stateParams.cidadeSel, termo: termousado}})               
                   .success(function(data){
                       $ionicLoading.hide();
@@ -195,7 +195,8 @@ angular.module('starter.controllers', ['ionic', 'angular-carousel'])
                   .error(function(data){
                     $scope.tipolista = "offline";
                     console.log('leitura offline'); 
-                    $http.get('data/lista-samonte.json')
+  
+                    $http.get('data/todos.json')
                       .error(function(data){
                           
                       })

@@ -49,6 +49,7 @@ angular.module('starter.services', [])
           }    
         }
       }    
+ 
       return results;
     },
      get: function(chatId) {
