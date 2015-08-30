@@ -6,10 +6,7 @@
     	<div class="card">
   <div class="item item-text-wrap">
    <center>
-    <button onclick="window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">msg via WhatsApp (with errcallback)</button>
-
-    <Br><Br>
-     <a onclick='cordova.plugins.Whatsapp.send("5196895723");'>
+     <a onclick="plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null /* img */, null /* url */, function() {console.log('compartilha')}, function(errormsg){alert(errormsg)})">
                 <img ng-src="img/whats-curtir.png">
                 <h3>CURTA NOSSO SITE NO SEU WHATSAPP</h3>
             </a>
